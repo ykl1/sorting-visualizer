@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Sort from './Sort'
+import { generateRandomStr } from '../global'
 
 const CreateArray = () => {
   const [displayArray, setDisplayArray] = useState([])
@@ -16,25 +17,15 @@ const CreateArray = () => {
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
-  const generateRandomStr = (length) => {
-    let text = ''
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    for (let i = 0; i < length; i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length))
-    }
-    return text
-  }
-
   return (
     <div>
       <input placeholder='Set Array Length' onChange={e => createRandomArray(e.target.value)} />
 
       <div>
-        {/* {displayArray.map(elem => (
-          <p key={generateRandomStr(5)}>
-            {elem}
-          </p>
-        ))} */}
+        <Sort 
+          key={generateRandomStr(5)}
+          displayArray={displayArray}
+        />
       </div>
     </div>
   )
