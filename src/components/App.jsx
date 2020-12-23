@@ -1,8 +1,9 @@
 import React from 'react'
+import CreateArray from './CreateArray'
 
 const App = () => (
   <div>
-    <h1>hello world</h1>
+    <CreateArray />
   </div>
 )
 
